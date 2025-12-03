@@ -13,7 +13,26 @@
         <input class = 'searchBar' id="locationInput" type="text" placeholder="Enter a location">
         <button class = "btn" id="addLocationBtn">Add Location</button>
         <div id="locoList">
-            <div id = "addLocoPlaceholder"></div>
+            <form id = "addLocoPlaceholder" class="locoBlock invisible">
+                <label class = "line">Latitude: <input type="text" name="latitude" required></label>
+                <label class = "line">Longitude: <input type="text" name="longtitude" required></label>
+                <label class = "line">City: <input type="text" name="city" required></label>
+                <label class = "line">Address: <input type="text" name="address" required></label>
+                <label class = "line">Postal Code: <input type="text" name="zip" required></label>
+                <label class = "line">Opening Weekdays:<button id="dropBtn" class = "dropBtn" type = "button"></button></label>
+                <div id = "dropdown-content" class="dropdown-content">
+                    <label><input type="checkbox" value="Mon"> Monday</label>
+                    <label><input type="checkbox" value="Tue"> Tuesday</label>
+                    <label><input type="checkbox" value="Wed"> Wednesday</label>
+                    <label><input type="checkbox" value="Thu"> Thursday</label>
+                    <label><input type="checkbox" value="Fri"> Friday</label>
+                    <label><input type="checkbox" value="Sat"> Saturday</label>
+                    <label><input type="checkbox" value="Sun"> Sunday</label>
+                </div>
+                <label class = "line" >Open Time: <input type="time" name="open" required></label>
+                <label class = "line" >Close Time: <input type="time" name="close" required></label>
+                <button class = "btn small" id="submitLocoBtn">Submit</button>
+            </form>
             <div id="loco"></div>
         </div>
     </div>
