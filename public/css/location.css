@@ -1,0 +1,38 @@
+.loco{
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    padding: 30px;
+}
+.bigWord{
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: "Playpen Sans", cursive;
+}
+.btn{
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Playpen Sans", cursive;
+}
+.btn:hover{
+    background-color: #2a2a2a;
+}
+.searchBar{
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 300px;
+    margin-bottom: 20px;
+}
