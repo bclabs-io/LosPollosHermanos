@@ -49,5 +49,14 @@ lRouter.post('/add', (req, res) => {
         res.json({ success: true, id: result.insertId });
     });
 });
-
+lRouter.get("/getAll", (req, res) => {
+    const sql = "SELECT * FROM location";
+    connection.query(sql, (err, results) => {
+        if (err) {
+            console.error("MySQL error:", err);
+            return res.status(500).json({ error: "Database error" });
+        }
+        res.json(results); // send all rows as JSON
+    });
+});
 export default lRouter;
