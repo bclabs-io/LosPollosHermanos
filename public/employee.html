@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Employee Management</title>
+    <title>Location Management</title>
     <link rel="stylesheet" href="css/employee.css">
 </head>
 <body>
-    <div id="topBar"></div>
-    <script type ="module" src = "js/employee.js"></script>
+<div id="topBar"></div>
+<div class = "Emp" id="empContainer">
+    <h1 class = "bigWord">Employee Management</h1>
+    <input class = 'searchBar' id="empInput" type="text" placeholder="Enter an employee name">
+    <button class = "btn" id="addEmpBtn">Add Employee</button>
+    <div id="employeeList">
+        <form id = "addEmpPlaceholder" class="empBlock invisible">
+        </form>
+        <div id="employee"></div>
+    </div>
+</div>
+<script type ="module" src = "js/employee.js"></script>
 </body>
 </html>
