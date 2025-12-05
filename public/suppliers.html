@@ -7,6 +7,73 @@
 </head>
 <body>
     <div id="topBar"></div>
-    <script type ="module" src = "js/supplier.js"></script>
+
+    <div class="Sup" id="supplierContainer">
+        <h1 class="bigWord">Supplier Management</h1>
+
+        <!-- 搜尋欄 -->
+        <input
+            class="searchBar"
+            id="supplierInput"
+            type="text"
+            placeholder="Enter a supplier name"
+        >
+
+        <!-- 新增按鈕 -->
+        <button class="btn" id="addSupplierBtn">Add Supplier</button>
+
+        <!-- 表單 + 供應商列表 -->
+        <div id="supplierList">
+            <!-- 一開始隱藏，按 Add Supplier 再顯示 -->
+            <form id="addSupplierPlaceholder" class="supBlock invisible">
+                <label class="line">
+                    Supplier Name:
+                    <input type="text" name="name" required>
+                </label>
+
+                <label class="line">
+                    Contact Person:
+                    <input type="text" name="contactPerson">
+                </label>
+
+                <label class="line">
+                    Email:
+                    <input type="email" name="email">
+                </label>
+
+                <label class="line">
+                    Phone:
+                    <input type="tel" name="phone">
+                </label>
+
+                <label class="line">
+                    Product Type:
+                    <input type="text" name="productType" placeholder="Chicken, Sauce, Packaging...">
+                </label>
+
+                <label class="line">
+                    City:
+                    <input type="text" name="city">
+                </label>
+
+                <label class="line">
+                    Address:
+                    <input type="text" name="address">
+                </label>
+
+                <label class="line">
+                    Notes:
+                    <input type="text" name="notes" placeholder="Payment term, delivery days...">
+                </label>
+
+                <button class="btn small" id="submitSupplierBtn">Submit</button>
+            </form>
+
+            <!-- 用 JS 把供應商卡片塞進來 -->
+            <div id="suppliers"></div>
+        </div>
+    </div>
+
+    <script type="module" src="js/supplier.js"></script>
 </body>
 </html>
