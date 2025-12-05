@@ -20,3 +20,25 @@ CREATE TABLE location (
                           open_time TIME NOT NULL,
                           close_time TIME NOT NULL
 );
+
+-- ============================
+-- Employee Table
+-- ============================
+CREATE TABLE employee (
+    eId INT AUTO_INCREMENT PRIMARY KEY,
+
+    -- Basic Info
+    name VARCHAR(100) NOT NULL,
+    position VARCHAR(100) NOT NULL,
+
+    -- Contact
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(50),
+
+    -- Work Location
+    store VARCHAR(100),
+
+    -- Hire Information
+    hireDate DATE,
+    type VARCHAR(20)
+);
