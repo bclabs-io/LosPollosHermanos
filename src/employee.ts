@@ -51,7 +51,6 @@ eRouter.get('/getAll', (req, res) => {
             console.error("MySQL error:", err);
             return res.status(500).json({ success: false, error: "Database error" });
         }
-        // 直接把 rows 回傳，前端的 employee.js 會用 emp.name / emp.position ... 來讀
         res.json(results);
     });
 });

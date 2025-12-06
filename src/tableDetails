@@ -25,20 +25,23 @@ CREATE TABLE location (
 -- Employee Table
 -- ============================
 CREATE TABLE employee (
-    eId INT AUTO_INCREMENT PRIMARY KEY,
+                          eId INT AUTO_INCREMENT PRIMARY KEY,
 
     -- Basic Info
-    name VARCHAR(100) NOT NULL,
-    position VARCHAR(100) NOT NULL,
+                          name VARCHAR(100) NOT NULL,
+                          position VARCHAR(100) NOT NULL,
 
     -- Contact
-    email VARCHAR(100) NOT NULL,
-    phone VARCHAR(50),
+                          email VARCHAR(100) NOT NULL,
+                          phone VARCHAR(50),
 
     -- Work Location
-    store VARCHAR(100),
+                          store INT NULL,
+                          FOREIGN KEY (store) REFERENCES location(sId) ON DELETE SET NULL,
+
 
     -- Hire Information
-    hireDate DATE,
-    type VARCHAR(20)
+                          hireDate DATE,
+                          type VARCHAR(20)
 );
+

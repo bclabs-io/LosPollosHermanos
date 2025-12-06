@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initTopBar();
     loadEmployees();
     initEmployeeEvents();
+    injectChoices();
 });
 
 /* ------------------ TopBar：和 location.js 一樣 ------------------ */
@@ -41,28 +42,37 @@ async function loadEmployees() {
             empContainer.innerHTML = "<p>No employees found.</p>";
             return;
         }
-
         empContainer.innerHTML = "";
-
-        employees.forEach(emp => {
+        for (const emp of employees) {
+            const locationName = await getLocationName(emp.store);
             empContainer.innerHTML += `
                 <div class="empBlock" data-employee-id="${emp.eId || ""}">
                     <p class="line"><strong>Name:</strong> ${emp.name}</p>
                     <p class="line"><strong>Position:</strong> ${emp.position}</p>
                     <p class="line"><strong>Email:</strong> ${emp.email || "-"}</p>
                     <p class="line"><strong>Phone:</strong> ${emp.phone || "-"}</p>
-                    <p class="line"><strong>Store / Location:</strong> ${emp.store || "-"}</p>
+                    <p class="line"><strong>Store / Location:</strong> ${locationName}</p>
                     <p class="line"><strong>Hire Date:</strong> ${emp.hireDate || "-"}</p>
                     <p class="line"><strong>Type:</strong> ${emp.type || "-"}</p>
                 </div>
             `;
-        });
+        };
     } catch (err) {
         console.error(err);
         empContainer.innerHTML = "<p>Failed to load employees.</p>";
     }
 }
-
+async function getLocationName(id) {
+    if (!id) return "To be decided";
+    const res = await fetch("/api/location/getById?id=" + id);
+    if (res.ok) {
+        const location = await res.json();
+        if (location) {
+            return `${location.address}, ${location.city}`;
+        }
+    }
+    return "To be decided";
+}
 /* ------------------ 綁定按鈕 / 表單事件 ------------------ */
 function initEmployeeEvents() {
     const addBtn = document.getElementById("addEmpBtn");
@@ -113,4 +123,13 @@ function initEmployeeEvents() {
             }
         });
     }
+}
+async function injectChoices(){
+    const res = await fetch("/api/location/getAll");
+    const locations = await res.json();
+    let choices = `<option value="">To be decided</option>`;
+    locations.forEach(location => {
+        choices += `<option value="${location.sId}">${location.address}, ${location.city}</option>`;
+    });
+    document.getElementById("storeSelect").innerHTML = choices;
 }

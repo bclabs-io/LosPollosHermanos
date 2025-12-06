@@ -60,4 +60,14 @@ lRouter.get("/getAll", (req, res) => {
         res.json(results); // send all rows as JSON
     });
 });
+lRouter.get('/getById', (req, res) => {
+    const {id} = req.query;
+    connection.query("SELECT * FROM location WHERE sId = ?", [id] , (err, results) => {
+        if (err) {
+            console.error("MySQL error:", err);
+            return res.status(500).json({ success: false, error: "Database error" });
+        }
+        res.status(200).json(results[0]);
+    });
+})
 export default lRouter;
