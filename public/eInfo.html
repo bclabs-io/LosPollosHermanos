@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Information</title>
+</head>
+<body>
+<form id="addEmpPlaceholder" class="empBlock invisible">
+    <label class="line">
+        Full Name:
+        <input type="text" name="name" required>
+    </label>
+    <label class="line">
+        Position:
+        <input type="text" name="position" required>
+    </label>
+    <label class="line">
+        Email:
+        <input type="email" name="email" required>
+    </label>
+    <label class="line">
+        Phone:
+        <input type="tel" name="phone">
+    </label>
+    <label class="line">
+        Store / Location:
+        <select name = "store" id ="storeSelect"></select>
+    </label>
+    <label class="line">
+        Hire Date:
+        <input type="date" name="hireDate">
+    </label>
+    <label class="line">
+        Employment Type:
+        <select name="type">
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Contract">Contract</option>
+        </select>
+    </label>
+
+    <button class="btn small" id="submitEmpBtn">Submit</button>
+</form>
+</body>
+</html>
